@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Team Admin</title>
+<script type="text/javascript" >
+	
+function testform()
+{
+ 
+	if(document.myForm.date.value == "" )
+	{
+		alert( "Please provide date!" );
+		document.myForm.date.focus() ;
+		return false;
+	}
+	if(document.myForm.teamname.value == "" )
+	{
+		alert( "Please provide team name!" );
+		document.myForm.teamname.focus() ;
+		return false;
+	}	
+	if(document.myForm.numberoftickets.value == "" )
+	{
+		alert( "Please provide number of tickets!" );
+		document.myForm.numberoftickets.focus() ;
+		return false;
+	}		
+	if(document.myForm.price.value == "" )
+	{
+		alert( "Please provide price!" );
+		document.myForm.price.focus() ;
+		return false;
+	}		
+	if(document.myForm.sold.value == "" )
+	{
+		alert( "Please provide sold!" );
+		document.myForm.sold.focus() ;
+		return false;
+	}
+	document.myForm.difference.value = (Number(document.myForm.sold.value) - Number(document.myForm.price.value)).toFixed(2);
+	
+}
+
+</script>
+</head>
+<body>
+	<form id="myForm" name="myForm" action="adminform" method="get" onsubmit="return testform();" >
+	<label for="date">
+	Date<br /> <input type="date" id="date" name="date" />
+	</label><br />
+	<label for="teamname">
+	Team name<br /> <input type="text" id="teamname" name="teamname" />
+	</label><br />
+	<label for="numberoftickets">
+	Number of Tickets<br /> <input type="number" id="numberoftickets" name="numberoftickets"  />
+	</label><br />
+	<label for="price">
+	Price<br /> <input type="number" id="price" name="price" step="any" />
+	</label><br />
+	<label for="sold">
+	Sold<br /> <input type="number" id="sold" name="sold" step="any" />
+	</label><br /><br />
+	<input type="hidden" name="difference" value="0.00" />
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" value="Submit"/>
+	</form>
+</body>
+</html>
